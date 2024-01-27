@@ -1,0 +1,50 @@
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+$side-size: 4;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    gap: 24px;
+}
+
+.board {
+    @include square(400px);
+    display: grid;
+    grid-template: repeat($side-size, 1fr) / repeat($side-size, 1fr);
+    gap: 8px;
+}
+
+.cell {
+    @include square(100%);
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.goblin {
+  @include square(100%);
+
+}
